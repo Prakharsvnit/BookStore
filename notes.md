@@ -30,3 +30,13 @@
 Question : should I have separate package.json for frontend and backend or combined?
 
 ## Important : Replace localhost with 127.0.0.1
+
+In a Mongoose schema, when you set `timestamps: true`, it automatically adds two fields to your documents: `createdAt` and `updatedAt`. These fields are used to track when a document was created and when it was last updated. The `__v` field is also present and is used for internal versioning. Here's an explanation of each of these fields based on the provided example:
+
+1. **createdAt**: This field represents the date and time when the document was initially created. In your example, it's set to "2023-10-14T16:28:08.306Z," which means the document was created on October 14, 2023, at 16:28:08.306 UTC.
+
+2. **updatedAt**: This field represents the date and time when the document was last updated. Initially, when the document is created, the `createdAt` and `updatedAt` fields are the same. However, whenever you update the document, the `updatedAt` field is automatically updated to reflect the most recent update time. In your example, both `createdAt` and `updatedAt` have the same timestamp, indicating that the document has not been updated since its creation.
+
+3. **__v (version)**: The `__v` field is an internal field used by Mongoose for document versioning. It keeps track of the document's version. When you update a document, Mongoose increments this value to indicate that the document has been modified. In your example, `__v` is set to 0, indicating that the document is at its initial version and has not been updated.
+
+For example, if the __v field had a value of 3 before an update, it would be updated to 4 after the update. This mechanism helps maintain version control and handle concurrent updates in MongoDB.
