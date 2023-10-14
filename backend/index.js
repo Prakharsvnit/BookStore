@@ -1,10 +1,17 @@
 import express from "express";
 import mongoose from "mongoose";
+import cors from "cors";
 import { PORT,mongoURL } from "./config.js";
 import { Book } from "./models/bookModel.js";
 
 const app = express();
+
+// Middleware for parsing request body
 app.use(express.json());
+
+// Middleware for enabling CORS
+app.use(cors());
+
 const options = {"directConnection":true,"serverSelectionTimeoutMS":2000};
 
 
