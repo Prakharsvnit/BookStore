@@ -26,3 +26,7 @@
 ### nodemon should be saved as dev-dependency(because it is requrired only in development and testing,not on production).
 ### Dependencies which are required in production should be saved as dependencies
 ### we can configure our app in a way for developers & testers reducing the bundle size for production build
+
+Question : should I have separate package.json for frontend and backend or combined?
+
+## Important : Replace localhost with 127.0.0.1
