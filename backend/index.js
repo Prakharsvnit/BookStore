@@ -33,7 +33,10 @@ app.route("/addBook").post(async (req, res) => {
 app.route("/getBooks").get(async (req,res) => {
     try{
         const books = await Book.find();
-        res.status(200).send(books);
+        res.status(200).send({
+            status:'success',
+            data:books
+        });
     }catch(err){
         console.log(`Error in getting books: ${err}`);
     }
