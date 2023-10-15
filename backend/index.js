@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json());
 
 // Middleware for enabling CORS
-app.use(cors());
+app.use(cors());   // can be restricted for origins,headers,methods
 
 const options = {"directConnection":true,"serverSelectionTimeoutMS":2000};
 

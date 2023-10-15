@@ -28,6 +28,27 @@
 ### we can configure our app in a way for developers & testers reducing the bundle size for production build
 
 Question : should I have separate package.json for frontend and backend or combined?
+In a MERN stack application (MongoDB, Express.js, React.js, Node.js), it's common to have separate `package.json` files for the frontend and backend. This is because the frontend (React.js) and backend (Express.js/Node.js) often have different dependencies and may even require different versions of the same dependency.
+
+Here's a typical project structure for a MERN stack application:
+
+```
+.
+├── frontend/
+│    ├── package.json
+│    ├── src/
+│    └── public/
+└── backend/
+     ├── package.json
+     ├── controllers/
+     └── lib/
+```
+
+In this structure, you would navigate to each directory (`frontend` or `backend`) and run `npm install` and `npm start` separately.
+
+This separation also aligns with the principle of separation of concerns, keeping the frontend and backend codebases distinct. This can make the project easier to manage, especially as it grows in complexity.
+
+However, this isn't a hard rule. Depending on your project's needs, you might opt for a monorepo structure with a single `package.json`. For example, if you want to share code between the frontend and backend, or if you prefer to manage all your dependencies from a single place.
 
 ## Important : Replace localhost with 127.0.0.1
 
