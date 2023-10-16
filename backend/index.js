@@ -11,7 +11,14 @@ const app = express();
 app.use(express.json());
 
 // Middleware for enabling CORS
-app.use(cors());   // can be restricted for origins,headers,methods
+// app.use(cors());   // can be restricted for origins,headers,methods
+app.use(cors(
+    {
+        origin: ["https://book-store-frontend-idvclfysf-prakharsvnit.vercel.app/"],
+        methods: ["POST", "GET","PUT","DELETE"],
+        credentials: true
+    }
+));
 
 // const options = {"directConnection":true,"serverSelectionTimeoutMS":2000};
 
