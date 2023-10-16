@@ -36,7 +36,7 @@ const EditBook = () => {
     };
     setLoading(true);
     axios
-      .put(`/updateBook/${id}`, data)
+      .put(`${PROD_URL}/updateBook/${id}`, data)
       .then(() => {
         setLoading(false);
         navigate('/');
