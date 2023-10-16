@@ -14,7 +14,7 @@ app.use(express.json());
 // app.use(cors());   // can be restricted for origins,headers,methods
 
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://book-store-frontend-4a3di4g8l-prakharsvnit.vercel.app');
+  res.setHeader('Access-Control-Allow-Origin', 'https://book-store-frontend-gamma.vercel.app');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   next();
