@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
@@ -12,7 +13,7 @@ app.use(express.json());
 // Middleware for enabling CORS
 app.use(cors());   // can be restricted for origins,headers,methods
 
-const options = {"directConnection":true,"serverSelectionTimeoutMS":2000};
+// const options = {"directConnection":true,"serverSelectionTimeoutMS":2000};
 
 
 app.route("/addBook").post(async (req, res) => {
@@ -74,7 +75,7 @@ app.route("/getBooks/:id").get(async (req,res) => {
     }
 })
 
-mongoose.connect(mongoURL, options)
+mongoose.connect(mongoURL)
 .then(() => {
     app.listen(PORT, () => {
         console.log(`Server started on port ${PORT}`);
