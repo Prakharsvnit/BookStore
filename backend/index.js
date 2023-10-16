@@ -14,7 +14,7 @@ app.use(express.json());
 // app.use(cors());   // can be restricted for origins,headers,methods
 app.use(cors(
     {
-        origin: ["https://book-store-frontend-idvclfysf-prakharsvnit.vercel.app/"],
+        origin: ["https://book-store-frontend-idvclfysf-prakharsvnit.vercel.app"],
         methods: ["POST", "GET","PUT","DELETE"],
         credentials: true
     }
@@ -35,6 +35,10 @@ app.route("/addBook").post(async (req, res) => {
         }
     }catch(err){
         console.log(`Error in adding book: ${err}`);
+        return res.status(500).json({
+            status:'error',
+            error:err
+        })
     }
 })
 
@@ -47,6 +51,10 @@ app.route("/getBooks").get(async (req,res) => {
         });
     }catch(err){
         console.log(`Error in getting books: ${err}`);
+        return res.status(500).json({
+            status:'error',
+            error:err
+        })
     }
 })
 
@@ -59,6 +67,10 @@ app.route('/updateBook/:id').put(async (req,res) => {
         res.status(200).send(book);
     }catch(err){
         console.log(`Error in updating book: ${err}`);
+        return res.status(500).json({
+            status:'error',
+            error:err
+        })
     }
 })
 
@@ -69,6 +81,10 @@ app.route('/deleteBook/:id').delete(async (req,res) => {
         res.status(200).send(book);
     }catch(err){
         console.log(`Error in deleting book: ${err}`);
+        return res.status(500).json({
+            status:'error',
+            error:err
+        })
     }
 })
 
@@ -79,6 +95,10 @@ app.route("/getBooks/:id").get(async (req,res) => {
         res.status(200).send(book);
     }catch(err){
         console.log(`Error in getting books: ${err}`);
+        return res.status(500).json({
+            status:'error',
+            error:err
+        })
     }
 })
 
