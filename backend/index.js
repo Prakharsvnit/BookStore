@@ -1,9 +1,9 @@
-import 'dotenv/config';
-import express from "express";
-import mongoose from "mongoose";
-import cors from "cors";
-import { PORT,mongoURL } from "./config.js";
-import { Book } from "./models/bookModel.js";
+require('dotenv').config();
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const { PORT, mongoURL } = require('./config.js');
+const { Book } = require('./models/bookModel.js');
 
 const app = express();
 
@@ -13,13 +13,13 @@ app.use(express.json());
 // Middleware for enabling CORS
 // app.use(cors());   // can be restricted for origins,headers,methods
 
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://book-store-frontend-gamma.vercel.app');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
-
+app.use(cors(
+    {
+        origin: ["https://book-store-frontend-gamma.vercel.app"],
+        methods: ["GET, POST, PUT, DELETE"],
+        credentials: true
+    }
+));
 
 // const options = {"directConnection":true,"serverSelectionTimeoutMS":2000};
 
