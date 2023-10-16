@@ -3,6 +3,7 @@ import BackButton from '../components/BackButton';
 import Spinner from '../components/Spinner';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { PROD_URL } from '../../constants';
 
 const CreateBooks = () => {
   const [title, setTitle] = useState('');
@@ -19,7 +20,7 @@ const CreateBooks = () => {
     };
     setLoading(true);
     axios
-      .post('http://localhost:5000/addBook', data)
+      .post(`${PROD_URL}/addBook`, data)
       .then(() => {
         setLoading(false);
         navigate('/');

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { MdOutlineAddBox } from 'react-icons/md';
 import BooksTable from '../components/BooksTable';
 import BooksCard from '../components/BooksCard';
+import { PROD_URL } from '../../constants';
 
 const Home = () => {
     const [books, setBooks] = useState([]);
@@ -14,7 +15,7 @@ const Home = () => {
     useEffect(() => {
         setLoading(true);
         axios
-          .get('http://localhost:5000/getBooks')
+          .get(`${PROD_URL}/getBooks`)
           .then((response) => {
             setBooks(response.data.data);
             setLoading(false);

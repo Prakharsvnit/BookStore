@@ -14,7 +14,7 @@ const EditBook = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`http://localhost:5000/getBooks/${id}`)
+    axios.get(`${PROD_URL}/getBooks/${id}`)
     .then((response) => {
         setAuthor(response.data.author);
         setPublishYear(response.data.publishYear)
@@ -35,7 +35,7 @@ const EditBook = () => {
     };
     setLoading(true);
     axios
-      .put(`http://localhost:5000/updateBook/${id}`, data)
+      .put(`/updateBook/${id}`, data)
       .then(() => {
         setLoading(false);
         navigate('/');

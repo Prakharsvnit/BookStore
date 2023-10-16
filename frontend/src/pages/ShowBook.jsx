@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Spinner from '../components/Spinner';
 import BackButton from '../components/BackButton';
+import { PROD_URL } from '../../constants';
 
 const ShowBook = () => {
 
@@ -13,7 +14,7 @@ const ShowBook = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:5000/getBooks/${id}`)
+      .get(`${PROD_URL}/getBooks/${id}`)
       .then((response) => {
         setBook(response.data);
         setLoading(false);

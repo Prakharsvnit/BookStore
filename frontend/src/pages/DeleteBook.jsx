@@ -3,6 +3,7 @@ import BackButton from '../components/BackButton';
 import Spinner from '../components/Spinner';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
+import { PROD_URL } from '../../constants';
 
 const DeleteBook = () => {
   const [loading, setLoading] = useState(false);
@@ -12,7 +13,7 @@ const DeleteBook = () => {
   const handleDeleteBook = () => {
     setLoading(true);
     axios
-      .delete(`http://localhost:5000/deleteBook/${id}`)
+      .delete(`${PROD_URL}/deleteBook/${id}`)
       .then(() => {
         setLoading(false);
         navigate('/');
